@@ -1,0 +1,17 @@
+def common_divisors(numbers):
+    def find_divisors(num):
+        divisors = set()
+        for i in range(1, num + 1):
+            if num % i == 0:
+                divisors.add(i)
+        return divisors
+
+    common_divs = set()
+    for num in numbers:
+        divs = find_divisors(num)
+        if not common_divs:
+            common_divs = divs
+        else:
+            common_divs = common_divs.intersection(divs)
+
+    return list(common_divs)
